@@ -73,7 +73,7 @@ class PlgContentTeaser_content extends JPlugin{
 	// }
 	public function onContentPrepare($context, &$article, &$params, $limitstart)
     {
-	$doc = JFactory::getDocument();
+	
 	$doc = JFactory::getDocument();
 	preg_match_all('@{teaser}(.*){/teaser}@Us', $article->text, $matches);
 	$teaserID = $matches[1][0];
