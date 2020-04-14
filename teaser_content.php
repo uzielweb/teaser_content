@@ -93,6 +93,10 @@ if(empty($teaserimages->image_fulltext) and empty($teaserimages->image_intro)){
 	$teaserimageMatches = preg_match('/(?<!_)src=([\'"])?(.*?)\\1/',$teaserArticle->introtext, $matches);
 	$teaserimage = $matches[2];
 }
+$teaserText = $teaserArticle->introtext;		
+if($this->params>get('remove_html') == '1'){
+$teaserText = '<p>'.strip_tags($teaserArticle->introtext).'</p>';	
+}
 // TODO
 // $text = $teaserArticle->introtext.$teaserArticle->fulltext;
 // $maxLimit = $this->params->get('max_limit');
@@ -100,7 +104,11 @@ if(empty($teaserimages->image_fulltext) and empty($teaserimages->image_intro)){
 	$html .= '<div class="custom-teaser">';
 	$html .= (($this->params->get('show_title') == '1')) ? '<h3><a href="'.$teaserlink.'">'.$teaserArticle->get('title').'</a></h3>': '';
 	$html .= ($teaserimage and ($this->params->get('show_intro_image') == '1')) ? ('<p>'.'<img src="'.$teaserimage.'" />'.'</p>'): '';
-	$html .= ($this->params->get('show_intro_text') == '1') ? ('<p>'.strip_tags($teaserArticle->introtext).'</p>') : '' ;
+	
+		$html .= ($this->params->get('show_intro_text') == '1') ? $teaserText : '' ;	
+	
+	
+	
 	$html .= '</div>';
 	$article->text = preg_replace('@{teaser}(.*){/teaser}@Us', $html, $article->text);
 	return true;
