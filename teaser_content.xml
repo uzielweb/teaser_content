@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.5" type="plugin" group="content" method="upgrade">
+	<name>
+		plg_content_teaser_content
+	</name>
+	<author>
+		Uziel Almeida Oliveira
+	</author>
+	<creationDate>
+		2020-4-14
+	</creationDate>
+	<copyright>
+		Created by Uziel Almeida Oliveira with generator-joomla3 by @diarcastro
+	</copyright>
+	<license>
+		GNU/Public
+	</license>
+	<authorEmail>
+		contato@pontomega.com.br
+	</authorEmail>
+	<authorUrl>
+		pontomega.com.br
+	</authorUrl>
+	<version>
+		1.0.0
+	</version>
+	<description>
+		PLG_CONTENT_TEASER_CONTENT_XML_DESCRIPTION
+	</description>
+	<files>
+		<filename plugin="teaser_content">
+			teaser_content.php
+		</filename>
+		<folder>
+			fields
+		</folder>
+		<folder>
+			language
+		</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">
+			language/en-GB/en-GB.plg_content_teaser_content.ini
+		</language>
+		<language tag="en-GB">
+			language/en-GB/en-GB.plg_content_teaser_content.sys.ini
+		</language>
+		<language tag="es-ES">
+			language/es-ES/es-ES.plg_content_teaser_content.ini
+		</language>
+		<language tag="es-ES">
+			language/es-ES/es-ES.plg_content_teaser_content.sys.ini
+		</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/plugins/content/teaser_content/fields">
+				<field name="show_title" type="radio" label="PLG_CONTENT_TEASER_CONTENT_FIELD_SHOW_TITLE_LABEL" description="PLG_CONTENT_TEASER_CONTENT_FIELD_SHOW_TITLE_DESC" default="1" class="btn-group btn-group-yesno">
+					<option value="0">
+						JNO
+					</option>
+					<option value="1">
+						JYES
+					</option>
+				</field>
+				<field name="show_intro_image" type="radio" label="PLG_CONTENT_TEASER_CONTENT_FIELD_SHOW_INTRO_IMAGE_LABEL" description="PLG_CONTENT_TEASER_CONTENT_FIELD_SHOW_INTRO_IMAGE_DESC" default="1" class="btn-group btn-group-yesno">
+					<option value="0">
+						JNO
+					</option>
+					<option value="1">
+						JYES
+					</option>
+				</field>
+				<field name="show_intro_text" type="radio" label="PLG_CONTENT_TEASER_CONTENT_FIELD_SHOW_INTRO_TEXT_LABEL" description="PLG_CONTENT_TEASER_CONTENT_FIELD_SHOW_INTRO_TEXT_DESC" default="1" class="btn-group btn-group-yesno">
+					<option value="0">
+						JNO
+					</option>
+					<option value="1">
+						JYES
+					</option>
+				</field>
+				<field name="text_limit" type="radio" label="Limit" description="Limit" default="0" class="btn-group btn-group-yesno">
+					<option value="0">
+						JNO
+					</option>
+					<option value="1">
+						JYES
+					</option>
+				</field>
+				<field name="max_limit" type="text" label="Max Limit" description="Max Limit" showon="text_limit:1" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
