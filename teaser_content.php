@@ -99,8 +99,8 @@ if(empty($teaserimages->image_fulltext) and empty($teaserimages->image_intro)){
 	$html = "";
 	$html .= '<div class="custom-teaser">';
 	$html .= (($this->params->get('show_title') == '1')) ? '<h3><a href="'.$teaserlink.'">'.$teaserArticle->get('title').'</a></h3>': '';
-	$html .= ($teaserimage and ($this->params->get('show_intro_image') == '1')) ? '<img src="'.$teaserimage.'" />': '';
-	$html .= ($this->params->get('show_intro_text') == '1') ? $teaserArticle->introtext : '' ;
+	$html .= ($teaserimage and ($this->params->get('show_intro_image') == '1')) ? ('<p>'.'<img src="'.$teaserimage.'" />'.'</p>'): '';
+	$html .= ($this->params->get('show_intro_text') == '1') ? ('<p>'.strip_tags($teaserArticle->introtext).'</p>') : '' ;
 	$html .= '</div>';
 	$article->text = preg_replace('@{teaser}(.*){/teaser}@Us', $html, $article->text);
 	return true;
